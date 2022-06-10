@@ -18,7 +18,7 @@ public class HttpHelper {
                                 .build()
                                 .send(request, BodyHandlers.ofString());
         }catch (Exception e){
-            throw new Exception();
+            throw new Exception(e);
         }
     }
 }
