@@ -25,7 +25,6 @@ public class PokemonController {
 
     @GetMapping("/pokemon")
     public ResponseEntity<?> findPokemon(@RequestParam String query, @RequestParam(required = false) SortType sort) throws Exception{
-        service.getPokemonsByName(query, sort);
-        return new ResponseEntity<>(sort,HttpStatus.OK);
+        return new ResponseEntity<>(service.getPokemonsByName(query, sort),HttpStatus.OK);
     }
 }

@@ -1,7 +1,10 @@
 package com.jeff.pokemon.service;
 
+import java.util.List;
+
 import com.jeff.pokemon.model.PokemonList;
 import com.jeff.pokemon.model.enums.SortType;
+import com.jeff.pokemon.model.response.PokemonName;
 
 public interface PokemonService {
     /**
@@ -12,5 +15,5 @@ public interface PokemonService {
      * @return A list of Pokemon names.
      * @throws Exception
      */
-    public PokemonList getPokemonsByName(String name, SortType sort) throws Exception;
+    public List<PokemonName> getPokemonsByName(String name, SortType sort) throws Exception;
 }

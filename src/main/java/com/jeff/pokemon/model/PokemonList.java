@@ -6,6 +6,10 @@ public class PokemonList {
 
     private List<String> result;
 
+    public PokemonList(List<String> names){
+        this.result = names;
+    }
+
     public List<String> getResult() {
         return result;
     }

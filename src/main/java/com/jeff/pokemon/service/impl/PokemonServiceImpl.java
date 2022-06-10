@@ -1,5 +1,7 @@
 package com.jeff.pokemon.service.impl;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,6 +14,7 @@ import com.jeff.pokemon.http.HttpHelper;
 import com.jeff.pokemon.model.PokemonList;
 import com.jeff.pokemon.model.enums.SortType;
 import com.jeff.pokemon.model.response.PayloadResponse;
+import com.jeff.pokemon.model.response.PokemonName;
 import com.jeff.pokemon.service.PokemonService;
 
 @Service
@@ -23,13 +26,13 @@ public class PokemonServiceImpl implements PokemonService {
     private HttpHelper http = new HttpHelper();
 
     @Override
-    public PokemonList getPokemonsByName(String name, SortType sort) throws Exception {
+    public List<PokemonName> getPokemonsByName(String name, SortType sort) throws Exception {
         log.info(">>Starting searching pokemon by name: {}",name);
         var response = http.doGet(String.format("%s/%s",url,name));
         log.info(">api response: {}",response.statusCode());
         if(response.statusCode() == HttpStatus.OK.value()){
             var resp = new Gson().fromJson(response.body(), PayloadResponse.class);
-            log.info("");
+            return resp.getResults();
         }else{
             //TODO nao encontrado ou servico fora do ar
         }
