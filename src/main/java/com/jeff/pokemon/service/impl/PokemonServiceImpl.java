@@ -26,9 +26,9 @@ public class PokemonServiceImpl implements PokemonService {
     private HttpHelper http = new HttpHelper();
 
     @Override
-    public List<PokemonName> getPokemonsByName(String name, SortType sort) throws Exception {
-        log.info(">>Starting searching pokemon by name: {}",name);
-        var response = http.doGet(String.format("%s/%s",url,name));
+    public List<PokemonName> getPokemons() throws Exception {
+        log.info(">>Starting calling pokemon api");
+        var response = http.doGet(url);
         log.info(">api response: {}",response.statusCode());
         if(response.statusCode() == HttpStatus.OK.value()){
             var resp = new Gson().fromJson(response.body(), PayloadResponse.class);
