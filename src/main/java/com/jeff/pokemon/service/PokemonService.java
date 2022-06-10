@@ -10,6 +10,7 @@ public interface PokemonService {
      * @param name The any part of the pokemon name you want to search for.
      * @param sort The sort type.
      * @return A list of Pokemon names.
+     * @throws Exception
      */
-    public PokemonList getPokemonsByName(String name, SortType sort);
+    public PokemonList getPokemonsByName(String name, SortType sort) throws Exception;
 }
