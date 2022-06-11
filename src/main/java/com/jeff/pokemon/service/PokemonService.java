@@ -13,7 +13,7 @@ public interface PokemonService {
      * 
      * @return A list of PokemonNames
      */
-    public List<PokemonName> getPokemons() throws Exception;
+    public List<PokemonName> getPokemons();
 
 
     /**
