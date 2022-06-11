@@ -18,6 +18,7 @@ import com.jeff.pokemon.model.enums.SortType;
 import com.jeff.pokemon.model.response.PayloadResponse;
 import com.jeff.pokemon.model.response.PokemonName;
 import com.jeff.pokemon.service.PokemonService;
+import com.jeff.pokemon.utils.PokemonSortUtils;
 
 @Service
 public class PokemonServiceImpl implements PokemonService {
@@ -58,7 +59,10 @@ public class PokemonServiceImpl implements PokemonService {
                 names.add(pokemon.getName());
         }
 
-        return new PokemonList(names);
+        if(sort == SortType.LENGTH)
+            return PokemonSortUtils.lenghtSort(names);
+        else    
+            return null;
     }
 
     
