@@ -62,7 +62,7 @@ public class PokemonServiceImpl implements PokemonService {
         if(sort == SortType.LENGTH)
             return PokemonSortUtils.lenghtSort(names);
         else    
-            return null;
+            return PokemonSortUtils.alphabethicSort(names);
     }
 
     

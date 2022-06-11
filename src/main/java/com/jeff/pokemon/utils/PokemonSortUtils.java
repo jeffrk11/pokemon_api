@@ -1,12 +1,7 @@
 package com.jeff.pokemon.utils;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
-
-import org.w3c.dom.ls.LSProgressEvent;
-import org.yaml.snakeyaml.util.ArrayUtils;
 
 import com.jeff.pokemon.model.PokemonList;
 
@@ -60,10 +55,26 @@ public class PokemonSortUtils {
         return new PokemonList(Arrays.asList(sorted));
     }
 
-    public static PokemonList alphabethicSort(List<String> names){
     
-
-        return null;
+    public static PokemonList alphabeticalSort(List<String> names){
+        //simple selection sort
+        //temp variable to hold some string
+        String temp ="";
+        //outer loop
+        for (int i = 0; i < names.size(); i++) {
+            //inner loop
+            for (int j = i + 1; j < names.size(); j++) {
+                
+                //compare strings, if it is bigger, change positions
+                if (names.get(i).compareTo(names.get(j)) > 0) {
+                    //replace
+                    temp = names.get(i);
+                    names.set(i,names.get(j));
+                    names.set(j,temp);
+                }
+            }
+        }
+        return new PokemonList(names);
     }
 
 }
