@@ -9,16 +9,7 @@ import java.net.http.HttpResponse.BodyHandlers;
 public class HttpHelper {
     //TODO criar technical exception
     public HttpResponse<String> doGet(String url) throws Exception{
-        try{
-            var request = HttpRequest.newBuilder(new URI(url))
-                                        .GET()
-                                        .build();
-
-            return HttpClient.newBuilder()
-                                .build()
-                                .send(request, BodyHandlers.ofString());
-        }catch (Exception e){
-            throw new Exception(e);
-        }
+        var request = HttpRequest.newBuilder(new URI(url)).GET().build();
+        return HttpClient.newBuilder().build().send(request, BodyHandlers.ofString());
     }
 }

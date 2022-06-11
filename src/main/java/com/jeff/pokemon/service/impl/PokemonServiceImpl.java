@@ -1,5 +1,7 @@
 package com.jeff.pokemon.service.impl;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -26,16 +28,32 @@ public class PokemonServiceImpl implements PokemonService {
     private HttpHelper http = new HttpHelper();
 
     @Override
-    public List<PokemonName> getPokemons() throws Exception {
+    public List<PokemonName> getPokemons(){
         log.info(">>Starting calling pokemon api");
-        var response = http.doGet(url);
-        log.info(">api response: {}",response.statusCode());
-        if(response.statusCode() == HttpStatus.OK.value()){
-            var resp = new Gson().fromJson(response.body(), PayloadResponse.class);
-            return resp.getResults();
-        }else{
-            //TODO nao encontrado ou servico fora do ar
+        try {
+            var response = http.doGet(url);
+            log.info(">api response: {}",response.statusCode());
+            if(response.statusCode() == HttpStatus.OK.value()){
+                
+                var resp = new Gson().fromJson(response.body(), PayloadResponse.class);
+                return resp.getResults();
+            }else{
+
+                log.info(">>Unexpected response");
+                return new ArrayList<>();
+            }
+        } catch (Exception e) {
+            log.info(">>Something wrong calling the pokeApi");
+            return new ArrayList<>();
         }
+    }
+
+    @Override
+    public PokemonList sortPokemonByName(String name, SortType sort) {
+        List<PokemonName> pokemons = this.getPokemons();
+
         return null;
     }
+
+    
 }
