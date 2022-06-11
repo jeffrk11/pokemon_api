@@ -51,8 +51,14 @@ public class PokemonServiceImpl implements PokemonService {
     @Override
     public PokemonList sortPokemonByName(String name, SortType sort) {
         List<PokemonName> pokemons = this.getPokemons();
+        List<String> names = new  ArrayList<>();
+        
+        for(var pokemon : pokemons){
+            if(pokemon.getName().contains(name))
+                names.add(pokemon.getName());
+        }
 
-        return null;
+        return new PokemonList(names);
     }
 
     
