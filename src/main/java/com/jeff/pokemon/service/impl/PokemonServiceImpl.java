@@ -1,16 +1,13 @@
 package com.jeff.pokemon.service.impl;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.jeff.pokemon.http.HttpHelper;
 import com.jeff.pokemon.model.PokemonList;
@@ -62,7 +59,7 @@ public class PokemonServiceImpl implements PokemonService {
         if(sort == SortType.LENGTH)
             return PokemonSortUtils.lenghtSort(names);
         else    
-            return PokemonSortUtils.alphabethicSort(names);
+            return PokemonSortUtils.alphabeticalSort(names);
     }
 
     
