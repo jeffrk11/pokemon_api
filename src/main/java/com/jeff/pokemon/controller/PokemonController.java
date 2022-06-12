@@ -25,7 +25,7 @@ public class PokemonController {
         log.info("Start process find pokemon");
         query = validation.validationName(query);
         sort = validation.validationSortType(sort);
-        return new ResponseEntity<>(service.sortPokemonByName(query,sort),HttpStatus.OK);
+        return new ResponseEntity<>(service.findPokemonByName(query,sort),HttpStatus.OK);
     }
 
     @GetMapping("/pokemon/highlight")
@@ -33,6 +33,6 @@ public class PokemonController {
         log.info("Start process find pokemon with highlight");
         query = validation.validationName(query);
         sort = validation.validationSortType(sort);
-        return new ResponseEntity<>(service.sortPokemonByNameHighlight(query,sort),HttpStatus.OK);
+        return new ResponseEntity<>(service.findPokemonByNameHighlight(query,sort),HttpStatus.OK);
     }
 }

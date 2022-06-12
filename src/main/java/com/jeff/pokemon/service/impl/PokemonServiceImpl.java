@@ -23,43 +23,40 @@ public class PokemonServiceImpl implements PokemonService {
 
     
     @Override
-    public ResponsePay sortPokemonByName(String name, SortType sort) {
+    public ResponsePay<String> findPokemonByName(String name, SortType sort) {
         log.info(">>Starting finding pokemon with name '{}' using sort type '{}'",name,sort);
-        List<Pokemon> pokemons = findPokemonsByName(name);
+        List<Pokemon> pokemons = this.getPokemons(name);
         List<String> names = this.sortPokemonsNames(pokemons, sort);
+
         return new ResponsePay<>(names);
     }
     
     @Override
-    public ResponsePay sortPokemonByNameHighlight(String name, SortType sort) {
+    public ResponsePay<Pokemon> findPokemonByNameHighlight(String name, SortType sort) {
         log.info(">>Starting finding pokemon hifh light with name '{}' using sort type '{}'",name,sort);
-        List<Pokemon> pokemons = this.findPokemonsByName(name);
+        List<Pokemon> pokemons = this.getPokemons(name);
         List<String> names = this.sortPokemonsNames(pokemons, sort);
 
-        ResponsePay<Pokemon> result = new ResponsePay<>( names.stream()
-                                                        .map(n -> new Pokemon(n,n.replace(name, "<pre>"+name+"</pre>")))
-                                                        .collect(Collectors.toList()));
-
-        return result;
+        return new ResponsePay<>( names.stream()
+                                            .map(n -> new Pokemon(n,n.replace(name, "<pre>"+name+"</pre>")))
+                                            .collect(Collectors.toList()));
     }
+    
     @Override
-    public List<Pokemon> getPokemons(){
+    public List<Pokemon> getPokemons(String name){
         List<Pokemon> pokemons = pokeApi.getAllPokemons();
-        
+            
         if(pokemons.size() == 0)
             throw new TechnicalException("Unexpected response when requesting pokeApi");
         
-        return pokemons;
-    }
-
-    private List<Pokemon> findPokemonsByName(String name){
-        List<Pokemon> names = new ArrayList<>();
-        
-        for(Pokemon pokemon : this.getPokemons()){
-            if(pokemon.getName().contains(name))
-                names.add(new Pokemon(pokemon.getName()));
+        List<Pokemon> response = new ArrayList<>();
+        if(name != null){
+            for(Pokemon pokemon : pokeApi.getAllPokemons()){
+                if(pokemon.getName().contains(name))
+                    response.add(pokemon);
+            }
         }
-        return names;
+        return response;
     }
 
     private List<String> sortPokemonsNames(List<Pokemon> pokemons, SortType sort){
