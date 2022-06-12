@@ -16,7 +16,6 @@ import com.jeff.pokemon.service.PokeApiService;
 import com.jeff.pokemon.service.PokemonService;
 import com.jeff.pokemon.utils.PokemonSortUtils;
 
-@Service
 public class PokemonServiceImpl implements PokemonService {
 
     private final Logger log = LoggerFactory.getLogger("LOGGER");
