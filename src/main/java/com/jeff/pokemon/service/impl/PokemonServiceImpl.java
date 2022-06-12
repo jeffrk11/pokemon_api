@@ -25,7 +25,7 @@ public class PokemonServiceImpl implements PokemonService {
     
     @Override
     public ResponsePay sortPokemonByName(String name, SortType sort) {
-        log.info("Starting finding pokemon with name '{}' using sort type '{}'",name,sort);
+        log.info(">>Starting finding pokemon with name '{}' using sort type '{}'",name,sort);
         List<Pokemon> pokemons = findPokemonsByName(name);
         List<String> names = this.sortPokemonsNames(pokemons, sort);
         return new ResponsePay<>(names);
@@ -33,6 +33,7 @@ public class PokemonServiceImpl implements PokemonService {
     
     @Override
     public ResponsePay sortPokemonByNameHighlight(String name, SortType sort) {
+        log.info(">>Starting finding pokemon hifh light with name '{}' using sort type '{}'",name,sort);
         List<Pokemon> pokemons = this.findPokemonsByName(name);
         List<String> names = this.sortPokemonsNames(pokemons, sort);
 

@@ -11,18 +11,23 @@ public class ValidationRequestServiceImpl implements ValidationRequestService{
     private final Logger log = LoggerFactory.getLogger("LOGGER");
 
     @Override
-    public void validationRequest(String name, SortType sort) {
-        log.info(">>Validating request..");
-
+    public String validationName(String name) {
+        log.info(">>Validating name..");
         if(name == null || name.isEmpty())
             throw new BusinessException("Pokemon name not provided");
             
-        if(sort == null){
-            log.info("Sorting type not provided, set default ALPHABETICAL");
-            sort = SortType.ALPHABETICAL;
-        }
+        return name.toLowerCase();
+    }
 
-        log.info(">>Validation ok");
+    @Override
+    public SortType validationSortType(SortType sortType) {
+        log.info(">>Validating sortType..");
+        
+        if(sortType == null){
+            log.info(">Sorting type not provided, set default ALPHABETICAL");
+            return SortType.ALPHABETICAL;
+        }
+        return sortType;
     }
     
 }

@@ -4,13 +4,22 @@ import com.jeff.pokemon.model.enums.SortType;
 
 public interface ValidationRequestService {
     
-    /**
-     * It validates the request.
-     * <p> check if name and sort exist</p>
-     * 
-     * @param name The name of the pokemon you want to validate.
-     * @param sort The sort type of the list.
-     */
-    public void validationRequest(String name, SortType sort);
 
+
+    /**
+     * Check if the name exist and update it with lower case
+     * 
+     * @param name The name of the field to be validated.
+     * @return the name in lower case.
+     */
+    public String validationName(String name);
+
+
+    /**
+     * > If the sortType is not provided, then return the default sort type
+     * 
+     * @param sortType The sort type to validate.
+     * @return The sortType is being returned, default is ALPHABETICAL.
+     */
+    public SortType validationSortType(SortType sortType);
 }
