@@ -10,14 +10,13 @@ import org.springframework.stereotype.Service;
 
 import com.jeff.pokemon.exceptions.TechnicalException;
 import com.jeff.pokemon.model.Pokemon;
-import com.jeff.pokemon.model.PokemonList;
+import com.jeff.pokemon.model.ResponsePay;
 import com.jeff.pokemon.model.enums.SortType;
 import com.jeff.pokemon.service.PokeApiService;
 import com.jeff.pokemon.service.PokemonService;
 import com.jeff.pokemon.utils.PokemonSortUtils;
 
 @Service
-
 public class PokemonServiceImpl implements PokemonService {
 
     private final Logger log = LoggerFactory.getLogger("LOGGER");
@@ -25,17 +24,22 @@ public class PokemonServiceImpl implements PokemonService {
 
     
     @Override
-    public PokemonList sortPokemonByName(String name, SortType sort) {
+    public ResponsePay sortPokemonByName(String name, SortType sort) {
         List<Pokemon> pokemons = findPokemonsByName(name);
         List<String> names = this.sortPokemonsNames(pokemons, sort);
-        return new PokemonList<>(names);
+        return new ResponsePay<>(names);
     }
     
     @Override
-    public PokemonList sortPokemonByNameHighlight(String name, SortType sort) {
+    public ResponsePay sortPokemonByNameHighlight(String name, SortType sort) {
         List<Pokemon> pokemons = this.findPokemonsByName(name);
-        
-        return null;
+        List<String> names = this.sortPokemonsNames(pokemons, sort);
+
+        ResponsePay<Pokemon> result = new ResponsePay<>( names.stream()
+                                                        .map(n -> new Pokemon(n,n.replace(name, "<pre>"+name+"</pre>")))
+                                                        .collect(Collectors.toList()));
+
+        return result;
     }
     @Override
     public List<Pokemon> getPokemons(){

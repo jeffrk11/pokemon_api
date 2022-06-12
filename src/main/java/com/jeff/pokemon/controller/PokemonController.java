@@ -30,6 +30,6 @@ public class PokemonController {
 
     @GetMapping("/pokemon/highlight")
     public ResponseEntity<?> findPokemonsHighlight(@RequestParam String query, @RequestParam(required = false) SortType sort) throws Exception{
-        return new ResponseEntity<>(service.sortPokemonByName(query,sort),HttpStatus.OK);
+        return new ResponseEntity<>(service.sortPokemonByNameHighlight(query,sort),HttpStatus.OK);
     }
 }

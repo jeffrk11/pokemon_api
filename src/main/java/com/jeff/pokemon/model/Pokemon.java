@@ -8,6 +8,10 @@ public class Pokemon {
     public Pokemon(String name) {
         this.name = name;
     }
+    public Pokemon(String name,String highlight ) {
+        this.name = name;
+        this.highlight = highlight;
+    }
     
     public String getName() {
         return name;
