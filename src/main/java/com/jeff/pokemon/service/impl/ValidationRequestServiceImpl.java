@@ -13,7 +13,7 @@ public class ValidationRequestServiceImpl implements ValidationRequestService{
     @Override
     public String validationName(String name) {
         log.info(">>Validating name..");
-        if(name == null || name.isEmpty())
+        if(name == null || name.isBlank())
             throw new BusinessException("Pokemon name not provided");
             
         return name.toLowerCase();

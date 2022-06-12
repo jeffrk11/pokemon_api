@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -24,6 +25,13 @@ public class ControllerAdvisor {
     public ResponseEntity<ErrorMessage> handlerBusinessException(BusinessException e){
         return new ResponseEntity<>(new ErrorMessage(LocalDateTime.now().toString(), 
                                                         e.getMessage()),
+                                                        HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(MissingServletRequestParameterException.class)
+    public ResponseEntity<ErrorMessage> handlerMissingParameter(MissingServletRequestParameterException e){
+        return new ResponseEntity<>(new ErrorMessage(LocalDateTime.now().toString(), 
+                                                        "Missing parameter: "+e.getParameterName()),
                                                         HttpStatus.BAD_REQUEST);
     }
 
