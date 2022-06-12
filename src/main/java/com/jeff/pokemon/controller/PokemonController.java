@@ -16,20 +16,25 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jeff.pokemon.model.enums.SortType;
 import com.jeff.pokemon.service.PokemonService;
+import com.jeff.pokemon.service.ValidationRequestService;
 import com.jeff.pokemon.service.impl.PokemonServiceImpl;
+import com.jeff.pokemon.service.impl.ValidationRequestServiceImpl;
 
 @RestController
 public class PokemonController {
     
     private PokemonService service = new PokemonServiceImpl();
+    private ValidationRequestService validation = new ValidationRequestServiceImpl();
 
     @GetMapping("/pokemon")
     public ResponseEntity<?> findPokemons(@RequestParam String query, @RequestParam(required = false) SortType sort) throws Exception{
+        validation.validationRequest(query, sort);
         return new ResponseEntity<>(service.sortPokemonByName(query,sort),HttpStatus.OK);
     }
 
     @GetMapping("/pokemon/highlight")
     public ResponseEntity<?> findPokemonsHighlight(@RequestParam String query, @RequestParam(required = false) SortType sort) throws Exception{
+        validation.validationRequest(query, sort);
         return new ResponseEntity<>(service.sortPokemonByNameHighlight(query,sort),HttpStatus.OK);
     }
 }

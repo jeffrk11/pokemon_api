@@ -21,16 +21,16 @@ public interface PokemonService {
      * 
      * @param name Any name part of the Pokemon you want to search for.
      * @param sort The type of sort you want to do.
-     * @return A PokemonList object
+     * @return A Pokemon List object
      */
     public ResponsePay sortPokemonByName(String name, SortType sort);
 
     /**
      * Sort the Pokemon by name, and highlight the Pokemon with the given name.
      * 
-     * @param name The name of the pokemon you want to search for.
+     * @param name Any name part of the Pokemon you want to search for.
      * @param sort The type of sort you want to do.
-     * @return A highlighted PokemonList object.
+     * @return A highlighted Pokemon List object.
      */
     public ResponsePay sortPokemonByNameHighlight(String name, SortType sort);
 }
