@@ -30,6 +30,7 @@ public class PokeApiServiceImpl implements PokeApiService{
 
     public PokeApiServiceImpl(){
         //caching this way, without autowired
+        log.info(">>Caching pokemons..");
         this.updatePayload();
     }
 
@@ -44,7 +45,7 @@ public class PokeApiServiceImpl implements PokeApiService{
     }
 
     private void updatePayload(){
-        log.info(">>Caching pokemons..");
+        log.info(">>Calling PokeApi..");
         time = LocalDateTime.now();
         try {
             var response = http.doGet(url);

@@ -14,7 +14,7 @@ import com.jeff.pokemon.model.ResponsePay;
 import com.jeff.pokemon.model.enums.SortType;
 import com.jeff.pokemon.service.PokeApiService;
 import com.jeff.pokemon.service.PokemonService;
-import com.jeff.pokemon.utils.PokemonSortUtils;
+import com.jeff.pokemon.utils.SortUtils;
 
 public class PokemonServiceImpl implements PokemonService {
 
@@ -28,7 +28,7 @@ public class PokemonServiceImpl implements PokemonService {
         List<Pokemon> pokemons = this.getPokemons(name);
         List<String> names = this.sortPokemonsNames(pokemons, sort);
 
-        return new ResponsePay<>(names);
+        return new ResponsePay<String>(names);
     }
     
     @Override
@@ -37,7 +37,7 @@ public class PokemonServiceImpl implements PokemonService {
         List<Pokemon> pokemons = this.getPokemons(name);
         List<String> names = this.sortPokemonsNames(pokemons, sort);
 
-        return new ResponsePay<>( names.stream()
+        return new ResponsePay<Pokemon>(names.stream()
                                             .map(n -> new Pokemon(n,n.replace(name, "<pre>"+name+"</pre>")))
                                             .collect(Collectors.toList()));
     }
@@ -63,7 +63,7 @@ public class PokemonServiceImpl implements PokemonService {
         List<String> names = new ArrayList<>(pokemons.stream()
                                                         .map(p -> p.getName())
                                                         .collect(Collectors.toList()));   
-        return PokemonSortUtils.sort(names,sort);
+        return SortUtils.sort(names,sort);
     }
 
 
