@@ -1,6 +1,7 @@
 package com.jeff.pokemon.service.impl;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -9,8 +10,8 @@ import org.springframework.http.HttpStatus;
 
 import com.google.gson.Gson;
 import com.jeff.pokemon.http.HttpHelper;
+import com.jeff.pokemon.model.Pokemon;
 import com.jeff.pokemon.model.response.PayloadResponse;
-import com.jeff.pokemon.model.response.PokemonName;
 import com.jeff.pokemon.service.PokeApiService;
 
 public class PokeApiServiceImpl implements PokeApiService{
@@ -22,7 +23,7 @@ public class PokeApiServiceImpl implements PokeApiService{
 
 
     @Override
-    public List<PokemonName> getAllPokemons() {
+    public List<Pokemon> getAllPokemons() {
         log.info(">>Starting calling pokemon api");
         try {
             var response = http.doGet(url);
@@ -30,7 +31,7 @@ public class PokeApiServiceImpl implements PokeApiService{
             if(response.statusCode() == HttpStatus.OK.value()){
                 
                 var resp = new Gson().fromJson(response.body(), PayloadResponse.class);
-                return resp.getResults();
+                return Collections.unmodifiableList(resp.getResults());
             }else{
 
                 log.info(">>Unexpected response");

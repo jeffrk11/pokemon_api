@@ -2,19 +2,19 @@ package com.jeff.pokemon.model;
 
 import java.util.List;
 
-public class PokemonList {
+public class PokemonList<T> {
 
-    private List<String> result;
+    private List<T> result;
 
-    public PokemonList(List<String> names){
-        this.result = names;
+    public PokemonList(List<T> pokemons){
+        this.result = pokemons;
     }
 
-    public List<String> getResult() {
+    public List<T> getResult() {
         return result;
     }
 
-    public void setResult(List<String> result) {
+    public void setResult(List<T> result) {
         this.result = result;
     }
 

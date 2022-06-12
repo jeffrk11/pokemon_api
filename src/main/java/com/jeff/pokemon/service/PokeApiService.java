@@ -2,7 +2,7 @@ package com.jeff.pokemon.service;
 
 import java.util.List;
 
-import com.jeff.pokemon.model.response.PokemonName;
+import com.jeff.pokemon.model.Pokemon;
 
 public interface PokeApiService {
     
@@ -11,5 +11,5 @@ public interface PokeApiService {
      * 
      * @return A list of PokemonNames
      */
-    public List<PokemonName> getAllPokemons();
+    public List<Pokemon> getAllPokemons();
 }

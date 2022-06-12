@@ -5,6 +5,10 @@ public class Pokemon {
     private String name;
     private String highlight;
 
+    public Pokemon(String name) {
+        this.name = name;
+    }
+    
     public String getName() {
         return name;
     }

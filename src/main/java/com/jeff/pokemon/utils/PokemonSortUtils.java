@@ -3,10 +3,7 @@ package com.jeff.pokemon.utils;
 import java.util.Arrays;
 import java.util.List;
 
-import com.jeff.pokemon.model.PokemonList;
-
 public class PokemonSortUtils {
-    
     
     /**
      * <p>Given a list of Pokemon names, return a list of Pokemon objects sorted by the length of their
@@ -20,9 +17,9 @@ public class PokemonSortUtils {
      * Then doing some operation to calculate the position of each object in the output sequence.
      * @see https://www.geeksforgeeks.org/counting-sort/
      * @param names A list of strings that are the names of the Pokemon.
-     * @return A PokemonList object.
+     * @return A List of Strings.
      */
-    public static PokemonList lenghtSort(List<String> names){
+    public static List<String> lenghtSort(List<String> names){
         //get the first element only to know any size
         int max = names.get(0).length();
         int min = names.get(0).length();
@@ -59,7 +56,7 @@ public class PokemonSortUtils {
             //and we need to decrement the frequency current number once the number is in right place
             frequency[name_lenght] -= 1;
         }
-        return new PokemonList(Arrays.asList(sorted));
+        return Arrays.asList(sorted);
     }
 
     
@@ -74,11 +71,9 @@ public class PokemonSortUtils {
      * 
      * @see https://www.geeksforgeeks.org/selection-sort/
      * @param names A list of strings that are the names of the Pokemon you want to sort.
-     * @return A PokemonList object.
+     * @return A List of Strings.
      */
-    public static PokemonList alphabeticalSort(List<String> names){
-
-
+    public static List<String> alphabeticalSort(List<String> names){
         //temp variable to hold some string
         String temp ="";
         //outer loop
@@ -95,7 +90,7 @@ public class PokemonSortUtils {
                 }
             }
         }
-        return new PokemonList(names);
+        return names;
     }
 
 }
