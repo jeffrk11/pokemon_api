@@ -62,13 +62,8 @@ public class PokemonServiceImpl implements PokemonService {
     private List<String> sortPokemonsNames(List<Pokemon> pokemons, SortType sort){
         List<String> names = new ArrayList<>(pokemons.stream()
                                                         .map(p -> p.getName())
-                                                        .collect(Collectors.toList()));
-        if(sort == SortType.LENGTH)
-            names = PokemonSortUtils.lenghtSort(names);
-        else    
-            names = PokemonSortUtils.alphabeticalSort(names);
-        
-        return names;
+                                                        .collect(Collectors.toList()));   
+        return PokemonSortUtils.sort(names,sort);
     }
 
 
