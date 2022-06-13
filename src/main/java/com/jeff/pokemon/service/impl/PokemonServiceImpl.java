@@ -36,8 +36,15 @@ public class PokemonServiceImpl implements PokemonService {
         List<Pokemon> pokemons = this.getPokemons(name);
         List<String> names = this.sortPokemonsNames(pokemons, sort);
 
+        StringBuilder sBuilder = new StringBuilder();
         return new ResponsePay<Pokemon>(names.stream()
-                                            .map(n -> new Pokemon(n,n.replace(name, "<pre>"+name+"</pre>")))
+                                            .map(n -> {
+                                                sBuilder.setLength(0);
+                                                sBuilder.append("<pre>");
+                                                sBuilder.append(name);
+                                                sBuilder.append("</pre>");
+                                                return new Pokemon(n,n.replace(name, sBuilder));
+                                            })
                                             .collect(Collectors.toList()));
     }
     
