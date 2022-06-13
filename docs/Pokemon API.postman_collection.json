@@ -12,21 +12,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/pokemon_api/pokemon?query=chu",
+					"raw": "localhost:8080/pokemon_api/pokemons?query=&sort=LENGHT",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"pokemon_api",
-						"pokemon"
+						"pokemons"
 					],
 					"query": [
-						{
-							"key": "sort",
-							"value": "LENGTH",
-							"disabled": true
-						},
 						{
 							"key": "sort",
 							"value": "ALPHABETICAL",
@@ -34,7 +29,11 @@
 						},
 						{
 							"key": "query",
-							"value": "chu"
+							"value": ""
+						},
+						{
+							"key": "sort",
+							"value": "LENGHT"
 						}
 					]
 				}
@@ -47,14 +46,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/pokemon_api/pokemon/highlight?query=chu",
+					"raw": "localhost:8080/pokemon_api/pokemons/highlight?sort=ALPHABETICAL&query=",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"pokemon_api",
-						"pokemon",
+						"pokemons",
 						"highlight"
 					],
 					"query": [
@@ -65,12 +64,11 @@
 						},
 						{
 							"key": "sort",
-							"value": "ALPHABETICAL",
-							"disabled": true
+							"value": "ALPHABETICAL"
 						},
 						{
 							"key": "query",
-							"value": "chu"
+							"value": ""
 						}
 					]
 				}

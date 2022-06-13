@@ -20,7 +20,7 @@ public class PokemonController {
     private PokemonService service = new PokemonServiceImpl();
     private ValidationRequestService validation = new ValidationRequestServiceImpl();
 
-    @GetMapping("/pokemon")
+    @GetMapping("/pokemons")
     public ResponseEntity<?> findPokemons(@RequestParam String query, @RequestParam(required = false) SortType sort) throws Exception{
         log.info("Start process find pokemon");
         query = validation.validationName(query);
@@ -28,7 +28,7 @@ public class PokemonController {
         return new ResponseEntity<>(service.findPokemonByName(query,sort),HttpStatus.OK);
     }
 
-    @GetMapping("/pokemon/highlight")
+    @GetMapping("/pokemons/highlight")
     public ResponseEntity<?> findPokemonsHighlight(@RequestParam String query, @RequestParam(required = false) SortType sort) throws Exception{
         log.info("Start process find pokemon with highlight");
         query = validation.validationName(query);

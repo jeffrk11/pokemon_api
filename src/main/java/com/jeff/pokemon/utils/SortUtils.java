@@ -40,8 +40,8 @@ public class SortUtils {
     }
     //method auxilary, its given the result of the comparation needed from given sort
     private static boolean comparate(SortType sort, String a, String b){
-        //if it is LENGtH
-        if(sort == SortType.LENGTH){
+        //if it is ALPHABETICAL
+        if(sort == SortType.ALPHABETICAL){
             return a.compareTo(b) > 0;
         }else{
             return a.length() > b.length();
