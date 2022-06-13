@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "c7e37b4f-373c-48b0-9192-10a6e90f56b7",
+		"name": "Pokemon API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12944517"
+	},
+	"item": [
+		{
+			"name": "Find Pokemons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/pokemon_api/pokemon?query=chu",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pokemon_api",
+						"pokemon"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "LENGTH",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "ALPHABETICAL",
+							"disabled": true
+						},
+						{
+							"key": "query",
+							"value": "chu"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Pokemons Highlight",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/pokemon_api/pokemon/highlight?query=chu",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pokemon_api",
+						"pokemon",
+						"highlight"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "LENGTH",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "ALPHABETICAL",
+							"disabled": true
+						},
+						{
+							"key": "query",
+							"value": "chu"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
