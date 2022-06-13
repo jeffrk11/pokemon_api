@@ -1,4 +1,4 @@
-package com.jeff.pokemon.service;
+package com.jeff.pokemon.tests.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -18,6 +18,7 @@ import org.springframework.test.util.ReflectionTestUtils;
 import com.jeff.pokemon.exceptions.TechnicalException;
 import com.jeff.pokemon.model.Pokemon;
 import com.jeff.pokemon.model.enums.SortType;
+import com.jeff.pokemon.service.PokeApiService;
 import com.jeff.pokemon.service.impl.PokemonServiceImpl;
 
 @ExtendWith(MockitoExtension.class)

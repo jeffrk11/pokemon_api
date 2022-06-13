@@ -1,9 +1,11 @@
-package com.jeff.pokemon.model.exception;
+package com.jeff.pokemon.tests.model.exception;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.jeff.pokemon.model.exception.ErrorMessage;
 
 public class ErrorMessageTest {
     

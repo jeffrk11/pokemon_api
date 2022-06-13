@@ -1,12 +1,13 @@
-package com.jeff.pokemon.model;
+package com.jeff.pokemon.tests.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.jeff.pokemon.model.ResponsePay;
 
 public class ResponsePayTest {
     

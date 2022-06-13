@@ -1,4 +1,4 @@
-package com.jeff.pokemon.utils;
+package com.jeff.pokemon.tests.utils;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import com.jeff.pokemon.model.enums.SortType;
+import com.jeff.pokemon.utils.SortUtils;
 
 public class SortUtilsTest {
     

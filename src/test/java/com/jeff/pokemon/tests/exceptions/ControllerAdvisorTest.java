@@ -1,13 +1,15 @@
-package com.jeff.pokemon.exceptions;
+package com.jeff.pokemon.tests.exceptions;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.core.MethodParameter;
 import org.springframework.core.convert.ConversionFailedException;
-import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.web.bind.MissingServletRequestParameterException;
+
+import com.jeff.pokemon.exceptions.BusinessException;
+import com.jeff.pokemon.exceptions.ControllerAdvisor;
+import com.jeff.pokemon.exceptions.TechnicalException;
 
 public class ControllerAdvisorTest {
     

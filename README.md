@@ -1,6 +1,8 @@
 For this challenge, the **selection sort** algorithm was used.
 you can see it's implementantion [here](https://github.com/jeffrk11/pokemon_api/blob/develop/src/main/java/com/jeff/pokemon/utils/SortUtils.java)
 
+and Sonarqube was used for code analysis
+
 In folder 'docs' you can find Postman json file to import and test, as well the diagram about the architecture.
 .
 
@@ -10,7 +12,7 @@ there are 2 endpoints
 - /pokemon_api/pokemons
 - /pokemon_api/pokemons/highlight
 
-and for these endpoints the are 2 parameters
+and for these endpoints there are 2 parameters
 - query: String (mandatory)
     - if you send an empty string, you will get a friendly error message
     - it is case insensitive

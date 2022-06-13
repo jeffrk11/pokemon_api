@@ -1,4 +1,4 @@
-package com.jeff.pokemon.service;
+package com.jeff.pokemon.tests.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

@@ -1,4 +1,4 @@
-package com.jeff.pokemon.utils.http;
+package com.jeff.pokemon.tests.utils.http;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

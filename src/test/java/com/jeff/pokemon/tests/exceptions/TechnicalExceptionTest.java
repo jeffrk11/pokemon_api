@@ -1,6 +1,8 @@
-package com.jeff.pokemon.exceptions;
+package com.jeff.pokemon.tests.exceptions;
 
 import org.junit.jupiter.api.Test;
+
+import com.jeff.pokemon.exceptions.TechnicalException;
 
 public class TechnicalExceptionTest {
     
