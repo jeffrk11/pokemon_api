@@ -1,4 +1,4 @@
-FROM openjdk:17.0.2-oracle
+FROM openjdk:17-jdk-alpine
 RUN addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
 ARG JAR_FILE=target/*.jar
