@@ -2,6 +2,7 @@ package com.jeff.pokemon.service.impl;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -11,10 +12,10 @@ import org.springframework.http.HttpStatus;
 
 import com.google.gson.Gson;
 import com.jeff.pokemon.exceptions.TechnicalException;
-import com.jeff.pokemon.http.HttpHelper;
 import com.jeff.pokemon.model.Pokemon;
-import com.jeff.pokemon.model.response.PayloadResponse;
+import com.jeff.pokemon.model.responseapi.PayloadResponse;
 import com.jeff.pokemon.service.PokeApiService;
+import com.jeff.pokemon.utils.http.HttpHelper;
 
 
 public class PokeApiServiceImpl implements PokeApiService{
@@ -31,6 +32,9 @@ public class PokeApiServiceImpl implements PokeApiService{
     public PokeApiServiceImpl(){
         //caching this way, without autowired
         log.info(">>Caching pokemons..");
+        //initialization
+        payloadResp = new PayloadResponse();
+        payloadResp.setResults(new ArrayList<>());
         this.updatePayload();
     }
 

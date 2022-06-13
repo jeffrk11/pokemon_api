@@ -1,4 +1,4 @@
-package com.jeff.pokemon.model.response;
+package com.jeff.pokemon.model.responseapi;
 
 import java.util.List;
 

@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 
 import com.jeff.pokemon.exceptions.TechnicalException;
 import com.jeff.pokemon.model.Pokemon;
@@ -51,7 +50,7 @@ public class PokemonServiceImpl implements PokemonService {
         
         List<Pokemon> response = new ArrayList<>();
         if(name != null){
-            for(Pokemon pokemon : pokeApi.getAllPokemons()){
+            for(var pokemon : pokemons){
                 if(pokemon.getName().contains(name))
                     response.add(pokemon);
             }
